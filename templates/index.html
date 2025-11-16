@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Таблица Менделеева</title>
+</head>
+<body>
+    <h1>Периодическая таблица</h1>
+    <ul>
+        {% for el in elements %}
+        <li>
+            <a href="/element/{{ el.id }}">
+                {{ el.id }} — {{ el.symbol }} — {{ el.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
