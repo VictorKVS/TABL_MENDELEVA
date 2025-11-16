@@ -26,3 +26,16 @@ async def element_page(request: Request, element_id: int):
         "element.html",
         {"request": request, "element": element}
     )
+@app.get("/search", response_class=HTMLResponse)
+async def search(request: Request, q: str = ""):
+    query = q.lower()
+
+    results = [
+        el for el in elements
+        if query in el["name"].lower() or query in el["symbol"].lower()
+    ]
+
+    return templates.TemplateResponse(
+        "search_results.html",
+        {"request": request, "results": results, "q": q}
+    )

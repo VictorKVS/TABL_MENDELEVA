@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты поиска</title>
+</head>
+<body>
+
+<h1>Результаты поиска</h1>
+
+{% if results %}
+    {% for el in results %}
+        <a href="/element/{{ el.id }}">{{ el.symbol }} — {{ el.name }}</a>
+        <br><br>
+    {% endfor %}
+{% else %}
+    <p>Ничего не найдено по запросу: "{{ q }}"</p>
+{% endif %}
+
+<br>
+<a href="/">Назад</a>
+
+</body>
+</html>
