@@ -1,4 +1,6 @@
-/* ====== ОБЩАЯ ТИПОГРАФИКА ====== */
+/* ============================================================
+   GLOBAL BASE TYPOGRAPHY & LAYOUT
+   ============================================================ */
 body {
     margin: 0;
     padding: 0;
@@ -8,9 +10,11 @@ body {
     transition: background 0.25s, color 0.25s;
 }
 
-/* ====== ШАПКА ====== */
+/* ============================================================
+   HEADER
+   ============================================================ */
 .header {
-    background: #1f2937; /* тёмно-синий-серый */
+    background: #1f2937;
     color: white;
     padding: 20px;
     text-align: center;
@@ -18,9 +22,29 @@ body {
     font-weight: 600;
     letter-spacing: 0.5px;
     box-shadow: 0 0 10px #0005;
+    position: relative;
 }
 
-/* ====== КОНТЕЙНЕР ====== */
+.theme-switch {
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    background: #374151;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.theme-switch:hover {
+    background: #4b5563;
+}
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================ */
 .container {
     width: 92%;
     max-width: 1400px;
@@ -28,7 +52,13 @@ body {
     margin-top: 25px;
 }
 
-/* ====== ФОРМА ПОИСКА ====== */
+/* ============================================================
+   SEARCH FORM
+   ============================================================ */
+form {
+    text-align: center;
+}
+
 form input {
     padding: 8px 12px;
     font-size: 16px;
@@ -60,162 +90,173 @@ form button:hover {
     background: #155ec2;
 }
 
-/* ====== СЕТКА ТАБЛИЦЫ ====== */
+/* ============================================================
+   PERIODIC GRID
+   ============================================================ */
+.periodic-grid,
 .grid {
     display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    gap: 5px;
-    margin-top: 25px;
+    grid-template-columns: repeat(18, 120px);
+    gap: 8px;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-/* ====== ЭЛЕМЕНТ ====== */
-.element {
+/* ============================================================
+   ELEMENT TILE (CARD)
+   ============================================================ */
+.element,
+.element-tile {
+    width: 120px;
+    height: 120px;
     border-radius: 8px;
-    padding: 10px 2px;
+    border: 2px solid #333;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    font-weight: 600;
-    border: 1px solid #aaa;
-    background: white;
+    transition: all 0.18s ease-out;
+    box-shadow: 0 1px 2px #0002;
     cursor: pointer;
-    transition: 0.15s;
-    box-shadow: 0 1px 3px #0002;
+    text-decoration: none;
+    color: inherit;
+    will-change: transform, background, box-shadow;
 }
 
-.element small {
-    font-size: 11px;
-    opacity: 0.75;
-}
-
-/* Наведение */
-.element:hover {
+.element:hover,
+.element-tile:hover {
     transform: scale(1.06);
     box-shadow: 0 0 12px #0003;
 }
 
-/* ====== ЦВЕТОВЫЕ КАТЕГОРИИ ====== */
+.element small,
+.tile-number { font-size: 14px; opacity: 0.75; }
+.tile-symbol { font-size: 38px; font-weight: bold; }
+.tile-name   { font-size: 14px; }
+.tile-mass   { font-size: 12px; opacity: 0.7; }
 
-/* Щелочные металлы */
-.alkali {
-    background: #ffccd2;
-    border-color: #d79aa3;
+/* ============================================================
+   COLOR PALETTE (LIGHT MODE)
+   ============================================================ */
+:root {
+    --alkali-normal: #f8d0d4;        --alkali-hover: #f4b4bb;        --alkali-active: #e39aa3;        --alkali-border: #c66e79;        --alkali-glow: rgba(246,138,150,0.55);
+    --alkaline-normal:#ffeac3;       --alkaline-hover:#ffdba1;       --alkaline-active:#ffcb74;       --alkaline-border:#d5a65a;       --alkaline-glow:rgba(255,205,116,0.55);
+    --transition-normal:#dbeafe;     --transition-hover:#bfdbfe;     --transition-active:#93c5fd;     --transition-border:#60a5fa;     --transition-glow:rgba(147,197,253,0.55);
+    --post-normal:#e0f7ff;           --post-hover:#c8f1ff;           --post-active:#a8e9ff;           --post-border:#7ecedf;           --post-glow:rgba(126,206,223,0.5);
+    --metalloid-normal:#fef7c2;      --metalloid-hover:#fceea0;      --metalloid-active:#f7e36f;      --metalloid-border:#d3c562;      --metalloid-glow:rgba(240,220,100,0.55);
+    --nonmetal-normal:#e7ffd8;       --nonmetal-hover:#d4ffc2;       --nonmetal-active:#c0f7a4;       --nonmetal-border:#90d674;       --nonmetal-glow:rgba(144,214,116,0.55);
+    --halogen-normal:#ffe6c4;        --halogen-hover:#ffd6a1;        --halogen-active:#ffc069;        --halogen-border:#d79b52;        --halogen-glow:rgba(255,192,105,0.5);
+    --noble-normal:#ffe9cc;          --noble-hover:#ffd9a6;          --noble-active:#ffc887;          --noble-border:#d9a765;          --noble-glow:rgba(255,200,135,0.5);
+    --lanthanide-normal:#e9ffe5;     --lanthanide-hover:#d6ffd0;     --lanthanide-active:#c1f7bc;     --lanthanide-border:#8ac987;     --lanthanide-glow:rgba(138,201,135,0.5);
+    --actinide-normal:#fff1d6;       --actinide-hover:#ffe3b3;       --actinide-active:#ffd495;       --actinide-border:#d9aa6c;       --actinide-glow:rgba(217,170,108,0.5);
 }
 
-/* Щелочноземельные металлы */
-.alkaline-earth {
-    background: #ffe7c7;
-    border-color: #d9b99a;
+/* ============================================================
+   GROUP-SPECIFIC BINDINGS
+   ============================================================ */
+.group {
+    background: var(--normal);
+}
+.group:hover {
+    background: var(--hover);
+    transform: scale(1.04);
+    border-color: var(--border);
+    box-shadow: 0 0 12px var(--glow);
+}
+.group:active {
+    background: var(--active);
+    transform: scale(0.97);
 }
 
-/* Переходные металлы */
-.transition {
-    background: #e7ddff;
-    border-color: #bfb1ea;
-}
+/* AUTOMATIC GROUP MAPPINGS */
+.alkali        { --normal: var(--alkali-normal);        --hover: var(--alkali-hover); --active: var(--alkali-active); --border: var(--alkali-border); --glow: var(--alkali-glow); }
+.alkaline-earth{ --normal: var(--alkaline-normal);      --hover: var(--alkaline-hover); --active: var(--alkaline-active); --border: var(--alkaline-border); --glow: var(--alkaline-glow); }
+.transition    { --normal: var(--transition-normal);    --hover: var(--transition-hover); --active: var(--transition-active); --border: var(--transition-border); --glow: var(--transition-glow); }
+.post-transition{--normal: var(--post-normal);           --hover: var(--post-hover);  --active: var(--post-active); --border: var(--post-border); --glow: var(--post-glow); }
+.metalloid     { --normal: var(--metalloid-normal);     --hover: var(--metalloid-hover);--active: var(--metalloid-active);--border: var(--metalloid-border);--glow: var(--metalloid-glow); }
+.nonmetal      { --normal: var(--nonmetal-normal);      --hover: var(--nonmetal-hover); --active: var(--nonmetal-active); --border: var(--nonmetal-border); --glow: var(--nonmetal-glow); }
+.halogen       { --normal: var(--halogen-normal);       --hover: var(--halogen-hover); --active: var(--halogen-active); --border: var(--halogen-border); --glow: var(--halogen-glow); }
+.noble         { --normal: var(--noble-normal);         --hover: var(--noble-hover);   --active: var(--noble-active);   --border: var(--noble-border);   --glow: var(--noble-glow); }
+.lanthanide    { --normal: var(--lanthanide-normal);    --hover: var(--lanthanide-hover);--active: var(--lanthanide-active);--border: var(--lanthanide-border);--glow: var(--lanthanide-glow); }
+.actinide      { --normal: var(--actinide-normal);      --hover: var(--actinide-hover); --active: var(--actinide-active); --border: var(--actinide-border); --glow: var(--actinide-glow); }
 
-/* Постпереходные */
-.post-transition {
-    background: #dff7ff;
-    border-color: #aedfea;
-}
-
-/* Металлоиды */
-.metalloid {
-    background: #fff6c9;
-    border-color: #e6d581;
-}
-
-/* Неметаллы */
-.nonmetal {
-    background: #dfffd9;
-    border-color: #a8e6a2;
-}
-
-/* Галогены */
-.halogen {
-    background: #ffe0f6;
-    border-color: #d6aed0;
-}
-
-/* Инертные газы */
-.noble {
-    background: #ddecff;
-    border-color: #a3c8ff;
-}
-
-/* Лантаноиды */
-.lanthanide {
-    background: #fff4cc;
-    border-color: #e0d299;
-}
-
-/* Актиноиды */
-.actinide {
-    background: #ffeacc;
-    border-color: #dbbf99;
-}
-
-/* ====== ТЁМНАЯ ТЕМА ====== */
-
+/* ============================================================
+   DARK THEME — NEO BLACK
+   ============================================================ */
 .dark body {
-    background: #111827;
-    color: #ddd;
+    background: #000000 !important;
+    color: #e7e7e7;
 }
 
 .dark .header {
-    background: #000;
-    box-shadow: 0 0 15px #000;
-}
-
-.dark .element {
-    background: #1f2937;
-    border-color: #374151;
-    color: #f0f0f0;
-}
-
-.dark form input {
-    background: #1f2937;
-    color: #eee;
-    border-color: #555;
-}
-
-.dark form input:focus {
-    border-color: #7aa0ff;
-    box-shadow: 0 0 6px #7aa0ffaa;
-}
-
-.dark form button {
-    background: #3b82f6;
-}
-
-.dark form button:hover {
-    background: #2563eb;
-}
-.theme-switch {
-    float: right;
-    margin-right: 15px;
-    margin-top: -5px;
-
-    background: #374151;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: 0.2s;
-}
-
-.theme-switch:hover {
-    background: #4b5563;
+    background: #0D0D0D;
+    box-shadow: 0 0 18px #000;
 }
 
 .dark .theme-switch {
-    background: #111;
-    color: #fff;
+    background: #111111;
 }
 
-.dark .theme-switch:hover {
+.dark form input {
+    background: #0D0D0D;
+    border-color: #444;
+    color: white;
+}
+
+.dark form button {
     background: #222;
+    border: 1px solid #333;
 }
 
+.dark .element,
+.dark .element-tile {
+    background: #0D0D0D;
+    border-color: #222;
+    color: #f0f0f0;
+    filter: brightness(0.92) saturate(0.92);
+}
 
+.dark .element:hover,
+.dark .element-tile:hover {
+    filter: brightness(1.15) saturate(1.2);
+    box-shadow: 0 0 14px rgba(255,255,255,0.12);
+}
+
+.dark .element:active,
+.dark .element-tile:active {
+    filter: brightness(1.25) saturate(1.3);
+}
+
+/* ============================================================
+   RESPONSIVE ADAPTIVITY
+   ============================================================ */
+@media (max-width: 2000px) {
+    .periodic-grid, .grid {
+        grid-template-columns: repeat(18, 100px);
+    }
+    .element, .element-tile {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 1600px) {
+    .periodic-grid, .grid {
+        grid-template-columns: repeat(18, 90px);
+    }
+    .element, .element-tile {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .periodic-grid, .grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+    .element, .element-tile {
+        width: auto;
+        height: 90px;
+    }
+}

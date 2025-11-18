@@ -1,149 +1,1188 @@
+# data.py — гибридная таблица Менделеева (современно + ГОСТ)
+# Полная база данных для UI-сетки (118 элементов)
+
 elements = [
-    # ===== ПЕРИОД 1 =====
-    {"id": 1, "symbol": "H",  "name": "Водород", "description": "Легчайший газ.", "x": 1, "y": 1, "group": "nonmetal"},
-    {"id": 2, "symbol": "He", "name": "Гелий",    "description": "Инертный газ.", "x": 18, "y": 1, "group": "noble"},
+    {
+        "id": 1,
+        "symbol": "H",
+        "name": "Водород",
+        "mass": "1.008",
+        "group": "nonmetal",
+        "description": "Самый лёгкий элемент, основной компонент воды и органики.",
+        "x": 1,
+        "y": 1
+    },
+    {
+        "id": 2,
+        "symbol": "He",
+        "name": "Гелий",
+        "mass": "4.0026",
+        "group": "noble",
+        "description": "Инертный газ, второй по распространённости во Вселенной.",
+        "x": 18,
+        "y": 1
+    },
+    {
+        "id": 3,
+        "symbol": "Li",
+        "name": "Литий",
+        "mass": "6.94",
+        "group": "alkali",
+        "description": "Щелочной металл, используется в аккумуляторах.",
+        "x": 1,
+        "y": 2
+    },
+    {
+        "id": 4,
+        "symbol": "Be",
+        "name": "Бериллий",
+        "mass": "9.0122",
+        "group": "alkaline-earth",
+        "description": "Лёгкий металл с высокой жёсткостью; применяется в авиастроении.",
+        "x": 2,
+        "y": 2
+    },
+    {
+        "id": 5,
+        "symbol": "B",
+        "name": "Бор",
+        "mass": "10.81",
+        "group": "metalloid",
+        "description": "Полуметалл; ключевой элемент борсодержащих материалов.",
+        "x": 13,
+        "y": 2
+    },
+    {
+        "id": 6,
+        "symbol": "C",
+        "name": "Углерод",
+        "mass": "12.011",
+        "group": "nonmetal",
+        "description": "Основа органической жизни; образует графит и алмазы.",
+        "x": 14,
+        "y": 2
+    },
+    {
+        "id": 7,
+        "symbol": "N",
+        "name": "Азот",
+        "mass": "14.007",
+        "group": "nonmetal",
+        "description": "Составляет 78% атмосферы Земли; важен для белков.",
+        "x": 15,
+        "y": 2
+    },
+    {
+        "id": 8,
+        "symbol": "O",
+        "name": "Кислород",
+        "mass": "15.999",
+        "group": "nonmetal",
+        "description": "Необходим для дыхания; один из самых реакционноспособных элементов.",
+        "x": 16,
+        "y": 2
+    },
+    {
+        "id": 9,
+        "symbol": "F",
+        "name": "Фтор",
+        "mass": "18.998",
+        "group": "halogen",
+        "description": "Самый электроотрицательный элемент; чрезвычайно реактивный.",
+        "x": 17,
+        "y": 2
+    },
+    {
+        "id": 10,
+        "symbol": "Ne",
+        "name": "Неон",
+        "mass": "20.180",
+        "group": "noble",
+        "description": "Инертный газ, применяется в неоновых лампах.",
+        "x": 18,
+        "y": 2
+    },
+    {
+        "id": 11,
+        "symbol": "Na",
+        "name": "Натрий",
+        "mass": "22.990",
+        "group": "alkali",
+        "description": "Активный щелочной металл; компонент соли (NaCl).",
+        "x": 1,
+        "y": 3
+    },
+    {
+        "id": 12,
+        "symbol": "Mg",
+        "name": "Магний",
+        "mass": "24.305",
+        "group": "alkaline-earth",
+        "description": "Лёгкий металл, важный элемент биохимии.",
+        "x": 2,
+        "y": 3
+    },
+    {
+        "id": 13,
+        "symbol": "Al",
+        "name": "Алюминий",
+        "mass": "26.982",
+        "group": "post-transition",
+        "description": "Лёгкий и прочный металл, один из самых распространённых на Земле.",
+        "x": 13,
+        "y": 3
+    },
+    {
+        "id": 14,
+        "symbol": "Si",
+        "name": "Кремний",
+        "mass": "28.085",
+        "group": "metalloid",
+        "description": "Основной материал микроэлектроники и полупроводников.",
+        "x": 14,
+        "y": 3
+    },
+    {
+        "id": 15,
+        "symbol": "P",
+        "name": "Фосфор",
+        "mass": "30.974",
+        "group": "nonmetal",
+        "description": "Ключевой элемент ДНК, ATP и костной ткани.",
+        "x": 15,
+        "y": 3
+    },
+    {
+        "id": 16,
+        "symbol": "S",
+        "name": "Сера",
+        "mass": "32.06",
+        "group": "nonmetal",
+        "description": "Используется в химической промышленности, присутствует в белках.",
+        "x": 16,
+        "y": 3
+    },
+    {
+        "id": 17,
+        "symbol": "Cl",
+        "name": "Хлор",
+        "mass": "35.45",
+        "group": "halogen",
+        "description": "Токсичный газ; применяется для дезинфекции воды.",
+        "x": 17,
+        "y": 3
+    },
+    {
+        "id": 18,
+        "symbol": "Ar",
+        "name": "Аргон",
+        "mass": "39.948",
+        "group": "noble",
+        "description": "Инертный газ; используется в сварке и лампах.",
+        "x": 18,
+        "y": 3
+    },
+    {
+        "id": 19,
+        "symbol": "K",
+        "name": "Калий",
+        "mass": "39.098",
+        "group": "alkali",
+        "description": "Жизненно важный элемент для работы мышц и нервов.",
+        "x": 1,
+        "y": 4
+    },
+    {
+        "id": 20,
+        "symbol": "Ca",
+        "name": "Кальций",
+        "mass": "40.078",
+        "group": "alkaline-earth",
+        "description": "Основной компонент костей и зубов.",
+        "x": 2,
+        "y": 4
+    },
+    {
+        "id": 21,
+        "symbol": "Sc",
+        "name": "Скандий",
+        "mass": "44.956",
+        "group": "transition",
+        "description": "Лёгкий переходный металл; применяется в авиационных сплавах.",
+        "x": 3,
+        "y": 4
+    },
+    {
+        "id": 22,
+        "symbol": "Ti",
+        "name": "Титан",
+        "mass": "47.867",
+        "group": "transition",
+        "description": "Очень прочный и коррозионностойкий металл; используется в медицине и авиации.",
+        "x": 4,
+        "y": 4
+    },
+    {
+        "id": 23,
+        "symbol": "V",
+        "name": "Ванадий",
+        "mass": "50.942",
+        "group": "transition",
+        "description": "Добавляется в сталь для повышения прочности.",
+        "x": 5,
+        "y": 4
+    },
+    {
+        "id": 24,
+        "symbol": "Cr",
+        "name": "Хром",
+        "mass": "51.996",
+        "group": "transition",
+        "description": "Обладает высокой коррозионной стойкостью; используется в нержавеющих сталях.",
+        "x": 6,
+        "y": 4
+    },
+    {
+        "id": 25,
+        "symbol": "Mn",
+        "name": "Марганец",
+        "mass": "54.938",
+        "group": "transition",
+        "description": "Широко используется в металлургии для улучшения свойств стали.",
+        "x": 7,
+        "y": 4
+    },
+    {
+        "id": 26,
+        "symbol": "Fe",
+        "name": "Железо",
+        "mass": "55.845",
+        "group": "transition",
+        "description": "Основной металл цивилизации; основа производства стали.",
+        "x": 8,
+        "y": 4
+    },
+    {
+        "id": 27,
+        "symbol": "Co",
+        "name": "Кобальт",
+        "mass": "58.933",
+        "group": "transition",
+        "description": "Используется в магнитах, аккумуляторах и сплавах.",
+        "x": 9,
+        "y": 4
+    },
+    {
+        "id": 28,
+        "symbol": "Ni",
+        "name": "Никель",
+        "mass": "58.693",
+        "group": "transition",
+        "description": "Коррозионностойкий металл; используется в монетах и батареях.",
+        "x": 10,
+        "y": 4
+    },
+    {
+        "id": 29,
+        "symbol": "Cu",
+        "name": "Медь",
+        "mass": "63.546",
+        "group": "transition",
+        "description": "Отличный проводник электричества; широко используется в электронике.",
+        "x": 11,
+        "y": 4
+    },
+    {
+        "id": 30,
+        "symbol": "Zn",
+        "name": "Цинк",
+        "mass": "65.38",
+        "group": "transition",
+        "description": "Используется для защиты стали от коррозии (оцинковка).",
+        "x": 12,
+        "y": 4
+    },
+    {
+        "id": 31,
+        "symbol": "Ga",
+        "name": "Галлий",
+        "mass": "69.723",
+        "group": "post-transition",
+        "description": "Расплавляется в руках; используется в электронике и светодиодах.",
+        "x": 13,
+        "y": 4
+    },
+    {
+        "id": 32,
+        "symbol": "Ge",
+        "name": "Германий",
+        "mass": "72.630",
+        "group": "metalloid",
+        "description": "Полупроводник, используемый в оптике и электронике.",
+        "x": 14,
+        "y": 4
+    },
+    {
+        "id": 33,
+        "symbol": "As",
+        "name": "Мышьяк",
+        "mass": "74.922",
+        "group": "metalloid",
+        "description": "Ядовитый полуметалл; используется в полупроводниках и сплавах.",
+        "x": 15,
+        "y": 4
+    },
+    {
+        "id": 34,
+        "symbol": "Se",
+        "name": "Селен",
+        "mass": "78.971",
+        "group": "nonmetal",
+        "description": "Используется в фотоэлементах и стекольной промышленности.",
+        "x": 16,
+        "y": 4
+    },
+    {
+        "id": 35,
+        "symbol": "Br",
+        "name": "Бром",
+        "mass": "79.904",
+        "group": "halogen",
+        "description": "Тяжёлая красно-бурая жидкость; применяется в химической промышленности.",
+        "x": 17,
+        "y": 4
+    },
+    {
+        "id": 36,
+        "symbol": "Kr",
+        "name": "Криптон",
+        "mass": "83.798",
+        "group": "noble",
+        "description": "Инертный газ; используется в лазерах и осветительных лампах.",
+        "x": 18,
+        "y": 4
+    },
+    {
+        "id": 37,
+        "symbol": "Rb",
+        "name": "Рубидий",
+        "mass": "85.468",
+        "group": "alkali",
+        "description": "Щелочной металл, мягкий и высокореактивный.",
+        "x": 1,
+        "y": 5
+    },
+    {
+        "id": 38,
+        "symbol": "Sr",
+        "name": "Стронций",
+        "mass": "87.62",
+        "group": "alkaline-earth",
+        "description": "Используется в пиротехнике для красного пламени.",
+        "x": 2,
+        "y": 5
+    },
+    {
+        "id": 39,
+        "symbol": "Y",
+        "name": "Иттрий",
+        "mass": "88.906",
+        "group": "transition",
+        "description": "Используется в светодиодах и сверхпроводниках.",
+        "x": 3,
+        "y": 5
+    },
+    {
+        "id": 40,
+        "symbol": "Zr",
+        "name": "Цирконий",
+        "mass": "91.224",
+        "group": "transition",
+        "description": "Коррозионностойкий металл, применяется в атомной энергетике.",
+        "x": 4,
+        "y": 5
+    },
+    {
+        "id": 41,
+        "symbol": "Nb",
+        "name": "Ниобий",
+        "mass": "92.906",
+        "group": "transition",
+        "description": "Используется в жаропрочных и сверхпроводящих материалах.",
+        "x": 5,
+        "y": 5
+    },
+    {
+        "id": 42,
+        "symbol": "Mo",
+        "name": "Молибден",
+        "mass": "95.95",
+        "group": "transition",
+        "description": "Компонент специальных сталей и катализаторов.",
+        "x": 6,
+        "y": 5
+    },
+    {
+        "id": 43,
+        "symbol": "Tc",
+        "name": "Технеций",
+        "mass": "98",
+        "group": "transition",
+        "description": "Первый искусственно полученный элемент; радиоактивен.",
+        "x": 7,
+        "y": 5
+    },
+    {
+        "id": 44,
+        "symbol": "Ru",
+        "name": "Рутений",
+        "mass": "101.07",
+        "group": "transition",
+        "description": "Используется в электронике, катализаторах и платиновых сплавах.",
+        "x": 8,
+        "y": 5
+    },
+    {
+        "id": 45,
+        "symbol": "Rh",
+        "name": "Родий",
+        "mass": "102.91",
+        "group": "transition",
+        "description": "Благородный металл; применяется в зеркалах и катализаторах.",
+        "x": 9,
+        "y": 5
+    },
+    {
+        "id": 46,
+        "symbol": "Pd",
+        "name": "Палладий",
+        "mass": "106.42",
+        "group": "transition",
+        "description": "Используется в ювелирных изделиях и автомобильных катализаторах.",
+        "x": 10,
+        "y": 5
+    },
+    {
+        "id": 47,
+        "symbol": "Ag",
+        "name": "Серебро",
+        "mass": "107.87",
+        "group": "transition",
+        "description": "Лучший проводник электричества; используется в электронике и ювелирном деле.",
+        "x": 11,
+        "y": 5
+    },
+    {
+        "id": 48,
+        "symbol": "Cd",
+        "name": "Кадмий",
+        "mass": "112.41",
+        "group": "transition",
+        "description": "Используется в аккумуляторах и защитных покрытиях; токсичен.",
+        "x": 12,
+        "y": 5
+    },
+    {
+        "id": 49,
+        "symbol": "In",
+        "name": "Индий",
+        "mass": "114.82",
+        "group": "post-transition",
+        "description": "Применяется в сенсорных экранах и полупроводниках.",
+        "x": 13,
+        "y": 5
+    },
+    {
+        "id": 50,
+        "symbol": "Sn",
+        "name": "Олово",
+        "mass": "118.71",
+        "group": "post-transition",
+        "description": "Старейший материал сплавов; используется в припоях.",
+        "x": 14,
+        "y": 5
+    },
+    {
+        "id": 51,
+        "symbol": "Sb",
+        "name": "Сурьма",
+        "mass": "121.76",
+        "group": "metalloid",
+        "description": "Добавляется в сплавы для повышения прочности.",
+        "x": 15,
+        "y": 5
+    },
+    {
+        "id": 52,
+        "symbol": "Te",
+        "name": "Теллур",
+        "mass": "127.60",
+        "group": "metalloid",
+        "description": "Используется в солнечных батареях и сплавах.",
+        "x": 16,
+        "y": 5
+    },
+    {
+        "id": 53,
+        "symbol": "I",
+        "name": "Йод",
+        "mass": "126.90",
+        "group": "halogen",
+        "description": "Важный микроэлемент; применяется в медицине.",
+        "x": 17,
+        "y": 5
+    },
+    {
+        "id": 54,
+        "symbol": "Xe",
+        "name": "Ксенон",
+        "mass": "131.29",
+        "group": "noble",
+        "description": "Инертный газ; применяется в лампах-вспышках и анестезии.",
+        "x": 18,
+        "y": 5
+    },
+    {
+        "id": 55,
+        "symbol": "Cs",
+        "name": "Цезий",
+        "mass": "132.91",
+        "group": "alkali",
+        "description": "Очень реактивный металл; используется в атомных часах.",
+        "x": 1,
+        "y": 6
+    },
+    {
+        "id": 56,
+        "symbol": "Ba",
+        "name": "Барий",
+        "mass": "137.33",
+        "group": "alkaline-earth",
+        "description": "Применяется в медицинской диагностике и пиротехнике.",
+        "x": 2,
+        "y": 6
+    },
+    {
+        "id": 57,
+        "symbol": "La",
+        "name": "Лантан",
+        "mass": "138.91",
+        "group": "lanthanide",
+        "description": "Первый элемент из группы лантаноидов; используется в оптике и сплавах.",
+        "x": 4,
+        "y": 9
+    },
+    {
+        "id": 58,
+        "symbol": "Ce",
+        "name": "Церий",
+        "mass": "140.12",
+        "group": "lanthanide",
+        "description": "Применяется в каталитических конвертерах и сплавах.",
+        "x": 5,
+        "y": 9
+    },
+    {
+        "id": 59,
+        "symbol": "Pr",
+        "name": "Празеодим",
+        "mass": "140.91",
+        "group": "lanthanide",
+        "description": "Используется в магнитах и защитных стёклах.",
+        "x": 6,
+        "y": 9
+    },
+    {
+        "id": 60,
+        "symbol": "Nd",
+        "name": "Неодим",
+        "mass": "144.24",
+        "group": "lanthanide",
+        "description": "Ключевой компонент мощных неодимовых магнитов.",
+        "x": 7,
+        "y": 9
+    },
+    {
+        "id": 61,
+        "symbol": "Pm",
+        "name": "Прометий",
+        "mass": "145",
+        "group": "lanthanide",
+        "description": "Редкий радиоактивный элемент, используется в ядерных батареях.",
+        "x": 8,
+        "y": 9
+    },
+    {
+        "id": 62,
+        "symbol": "Sm",
+        "name": "Самарий",
+        "mass": "150.36",
+        "group": "lanthanide",
+        "description": "Используется в магнитах и ядерных реакторах.",
+        "x": 9,
+        "y": 9
+    },
+    {
+        "id": 63,
+        "symbol": "Eu",
+        "name": "Европий",
+        "mass": "151.96",
+        "group": "lanthanide",
+        "description": "Используется в люминофорах телевизоров и ламп.",
+        "x": 10,
+        "y": 9
+    },
+    {
+        "id": 64,
+        "symbol": "Gd",
+        "name": "Гадолиний",
+        "mass": "157.25",
+        "group": "lanthanide",
+        "description": "Используется в МРТ-контрастах и магнитных материалах.",
+        "x": 11,
+        "y": 9
+    },
+    {
+        "id": 65,
+        "symbol": "Tb",
+        "name": "Тербий",
+        "mass": "158.93",
+        "group": "lanthanide",
+        "description": "Используется в зелёных люминофорах и сплавах.",
+        "x": 12,
+        "y": 9
+    },
+    {
+        "id": 66,
+        "symbol": "Dy",
+        "name": "Диспрозий",
+        "mass": "162.50",
+        "group": "lanthanide",
+        "description": "Используется в мощных магнитах и лазерах.",
+        "x": 13,
+        "y": 9
+    },
+    {
+        "id": 67,
+        "symbol": "Ho",
+        "name": "Гольмий",
+        "mass": "164.93",
+        "group": "lanthanide",
+        "description": "Имеет высокую магнитную проницаемость; применяется в лазерах.",
+        "x": 14,
+        "y": 9
+    },
+    {
+        "id": 68,
+        "symbol": "Er",
+        "name": "Эрбий",
+        "mass": "167.26",
+        "group": "lanthanide",
+        "description": "Используется в оптоволоконных усилителях.",
+        "x": 15,
+        "y": 9
+    },
+    {
+        "id": 69,
+        "symbol": "Tm",
+        "name": "Тулий",
+        "mass": "168.93",
+        "group": "lanthanide",
+        "description": "Редкий металл; используется в лазерных устройствах.",
+        "x": 16,
+        "y": 9
+    },
+    {
+        "id": 70,
+        "symbol": "Yb",
+        "name": "Иттербий",
+        "mass": "173.05",
+        "group": "lanthanide",
+        "description": "Используется в лазерах и специальных сталях.",
+        "x": 17,
+        "y": 9
+    },
+    {
+        "id": 71,
+        "symbol": "Lu",
+        "name": "Лютеций",
+        "mass": "174.97",
+        "group": "lanthanide",
+        "description": "Самый тяжёлый лантаноид; применяется в ПЭТ-сканировании.",
+        "x": 18,
+        "y": 9
+    },
+    {
+        "id": 89,
+        "symbol": "Ac",
+        "name": "Актиний",
+        "mass": "227",
+        "group": "actinide",
+        "description": "Радиоактивный элемент; первый представитель актиноидов.",
+        "x": 4,
+        "y": 10
+    },
+    {
+        "id": 90,
+        "symbol": "Th",
+        "name": "Торий",
+        "mass": "232.04",
+        "group": "actinide",
+        "description": "Используется в ядерной энергетике; потенциальное топливо будущего.",
+        "x": 5,
+        "y": 10
+    },
+    {
+        "id": 91,
+        "symbol": "Pa",
+        "name": "Протактиний",
+        "mass": "231.04",
+        "group": "actinide",
+        "description": "Очень редкий радиоактивный элемент, используется в научных исследованиях.",
+        "x": 6,
+        "y": 10
+    },
+    {
+        "id": 92,
+        "symbol": "U",
+        "name": "Уран",
+        "mass": "238.03",
+        "group": "actinide",
+        "description": "Основное топливо атомных реакторов; радиоактивный металл.",
+        "x": 7,
+        "y": 10
+    },
+    {
+        "id": 93,
+        "symbol": "Np",
+        "name": "Нептуний",
+        "mass": "237",
+        "group": "actinide",
+        "description": "Искусственный радиоактивный элемент; используется в ядерных технологиях.",
+        "x": 8,
+        "y": 10
+    },
+    {
+        "id": 94,
+        "symbol": "Pu",
+        "name": "Плутоний",
+        "mass": "244",
+        "group": "actinide",
+        "description": "Топливо для ядерных реакторов и космических РИТЭГов.",
+        "x": 9,
+        "y": 10
+    },
+    {
+        "id": 95,
+        "symbol": "Am",
+        "name": "Америций",
+        "mass": "243",
+        "group": "actinide",
+        "description": "Используется в датчиках дыма и ядерных источниках энергии.",
+        "x": 10,
+        "y": 10
+    },
+    {
+        "id": 96,
+        "symbol": "Cm",
+        "name": "Кюрий",
+        "mass": "247",
+        "group": "actinide",
+        "description": "Радиоактивный элемент, названный в честь супругов Кюри.",
+        "x": 11,
+        "y": 10
+    },
+    {
+        "id": 97,
+        "symbol": "Bk",
+        "name": "Берклий",
+        "mass": "247",
+        "group": "actinide",
+        "description": "Искусственный элемент, используется для получения более тяжёлых элементов.",
+        "x": 12,
+        "y": 10
+    },
+    {
+        "id": 98,
+        "symbol": "Cf",
+        "name": "Калифорний",
+        "mass": "251",
+        "group": "actinide",
+        "description": "Применяется в источниках нейтронов и геологии.",
+        "x": 13,
+        "y": 10
+    },
+    {
+        "id": 99,
+        "symbol": "Es",
+        "name": "Эйнштейний",
+        "mass": "252",
+        "group": "actinide",
+        "description": "Редчайший элемент, названный в честь Альберта Эйнштейна.",
+        "x": 14,
+        "y": 10
+    },
+    {
+        "id": 100,
+        "symbol": "Fm",
+        "name": "Фермий",
+        "mass": "257",
+        "group": "actinide",
+        "description": "Искусственный элемент, названный в честь Энрико Ферми.",
+        "x": 15,
+        "y": 10
+    },
+    {
+        "id": 101,
+        "symbol": "Md",
+        "name": "Менделевий",
+        "mass": "258",
+        "group": "actinide",
+        "description": "Назван в честь Дмитрия Ивановича Менделеева.",
+        "x": 16,
+        "y": 10
+    },
+    {
+        "id": 102,
+        "symbol": "No",
+        "name": "Нобелий",
+        "mass": "259",
+        "group": "actinide",
+        "description": "Назван в честь Альфреда Нобеля; радиоактивный металл.",
+        "x": 17,
+        "y": 10
+    },
+    {
+        "id": 103,
+        "symbol": "Lr",
+        "name": "Лоуренсий",
+        "mass": "266",
+        "group": "actinide",
+        "description": "Последний актиноид; используется только в научных целях.",
+        "x": 18,
+        "y": 10
+    },
+    {
+        "id": 72,
+        "symbol": "Hf",
+        "name": "Гафний",
+        "mass": "178.49",
+        "group": "transition",
+        "description": "Тугоплавкий металл, используется в ядерных реакторах.",
+        "x": 4,
+        "y": 6
+    },
+    {
+        "id": 73,
+        "symbol": "Ta",
+        "name": "Тантал",
+        "mass": "180.95",
+        "group": "transition",
+        "description": "Коррозионностойкий металл; применяется в электронике.",
+        "x": 5,
+        "y": 6
+    },
+    {
+        "id": 74,
+        "symbol": "W",
+        "name": "Вольфрам",
+        "mass": "183.84",
+        "group": "transition",
+        "description": "Самый тугоплавкий металл; используется в лампах и сплавах.",
+        "x": 6,
+        "y": 6
+    },
+    {
+        "id": 75,
+        "symbol": "Re",
+        "name": "Рений",
+        "mass": "186.21",
+        "group": "transition",
+        "description": "Редкий металл, используется в сверхпрочных сплавах.",
+        "x": 7,
+        "y": 6
+    },
+    {
+        "id": 76,
+        "symbol": "Os",
+        "name": "Осмий",
+        "mass": "190.23",
+        "group": "transition",
+        "description": "Самый плотный металл; применяется в контактных сплавах.",
+        "x": 8,
+        "y": 6
+    },
+    {
+        "id": 77,
+        "symbol": "Ir",
+        "name": "Иридий",
+        "mass": "192.22",
+        "group": "transition",
+        "description": "Очень твёрдый благородный металл.",
+        "x": 9,
+        "y": 6
+    },
+    {
+        "id": 78,
+        "symbol": "Pt",
+        "name": "Платина",
+        "mass": "195.08",
+        "group": "transition",
+        "description": "Благородный металл, применяется в катализаторах и ювелирном деле.",
+        "x": 10,
+        "y": 6
+    },
+    {
+        "id": 79,
+        "symbol": "Au",
+        "name": "Золото",
+        "mass": "196.97",
+        "group": "transition",
+        "description": "Благородный металл; обладает уникальной химической инертностью.",
+        "x": 11,
+        "y": 6
+    },
+    {
+        "id": 80,
+        "symbol": "Hg",
+        "name": "Ртуть",
+        "mass": "200.59",
+        "group": "transition",
+        "description": "Жидкий металл; используется в приборах и химии.",
+        "x": 12,
+        "y": 6
+    },
+    {
+        "id": 81,
+        "symbol": "Tl",
+        "name": "Таллий",
+        "mass": "204.38",
+        "group": "post-transition",
+        "description": "Токсичный металл; используется в электронике.",
+        "x": 13,
+        "y": 6
+    },
+    {
+        "id": 82,
+        "symbol": "Pb",
+        "name": "Свинец",
+        "mass": "207.2",
+        "group": "post-transition",
+        "description": "Тяжёлый металл, известный с древности; токсичен.",
+        "x": 14,
+        "y": 6
+    },
+    {
+        "id": 83,
+        "symbol": "Bi",
+        "name": "Висмут",
+        "mass": "208.98",
+        "group": "post-transition",
+        "description": "Слаботоксичный металл, используется в медицине.",
+        "x": 15,
+        "y": 6
+    },
+    {
+        "id": 84,
+        "symbol": "Po",
+        "name": "Полоний",
+        "mass": "209",
+        "group": "metalloid",
+        "description": "Редкий радиоактивный элемент; открыт Марией Склодовской-Кюри.",
+        "x": 16,
+        "y": 6
+    },
+    {
+        "id": 85,
+        "symbol": "At",
+        "name": "Астат",
+        "mass": "210",
+        "group": "halogen",
+        "description": "Крайне редкий радиоактивный галоген.",
+        "x": 17,
+        "y": 6
+    },
+    {
+        "id": 86,
+        "symbol": "Rn",
+        "name": "Радон",
+        "mass": "222",
+        "group": "noble",
+        "description": "Радиоактивный благородный газ.",
+        "x": 18,
+        "y": 6
+    },
 
-    # ===== ПЕРИОД 2 =====
-    {"id": 3,  "symbol": "Li", "name": "Литий", "description": "Щелочной металл.", "x": 1, "y": 2, "group": "alkali"},
-    {"id": 4,  "symbol": "Be", "name": "Бериллий", "description": "Щелочноземельный металл.", "x": 2, "y": 2, "group": "alkaline-earth"},
+    # ------- 7-й период -------
 
-    {"id": 5,  "symbol": "B",  "name": "Бор", "description": "Полуметалл.", "x": 13, "y": 2, "group": "metalloid"},
-    {"id": 6,  "symbol": "C",  "name": "Углерод", "description": "Основной элемент органики.", "x": 14, "y": 2, "group": "nonmetal"},
-    {"id": 7,  "symbol": "N",  "name": "Азот", "description": "Основной газ атмосферы.", "x": 15, "y": 2, "group": "nonmetal"},
-    {"id": 8,  "symbol": "O",  "name": "Кислород", "description": "Необходим для дыхания.", "x": 16, "y": 2, "group": "nonmetal"},
-    {"id": 9,  "symbol": "F",  "name": "Фтор", "description": "Самый реактивный галоген.", "x": 17, "y": 2, "group": "halogen"},
-    {"id": 10, "symbol": "Ne", "name": "Неон", "description": "Инертный газ.", "x": 18, "y": 2, "group": "noble"},
-
-    # ===== ПЕРИОД 3 =====
-    {"id": 11, "symbol": "Na", "name": "Натрий", "description": "Щелочной металл.", "x": 1, "y": 3, "group": "alkali"},
-    {"id": 12, "symbol": "Mg", "name": "Магний", "description": "Легкий металл.", "x": 2, "y": 3, "group": "alkaline-earth"},
-
-    {"id": 13, "symbol": "Al", "name": "Алюминий", "description": "Легкий металл.", "x": 13, "y": 3, "group": "post-transition"},
-    {"id": 14, "symbol": "Si", "name": "Кремний", "description": "Полуметалл.", "x": 14, "y": 3, "group": "metalloid"},
-    {"id": 15, "symbol": "P",  "name": "Фосфор", "description": "Элемент жизни.", "x": 15, "y": 3, "group": "nonmetal"},
-    {"id": 16, "symbol": "S",  "name": "Сера", "description": "Распространенный неметалл.", "x": 16, "y": 3, "group": "nonmetal"},
-    {"id": 17, "symbol": "Cl", "name": "Хлор", "description": "Галоген.", "x": 17, "y": 3, "group": "halogen"},
-    {"id": 18, "symbol": "Ar", "name": "Аргон", "description": "Инертный газ.", "x": 18, "y": 3, "group": "noble"},
-
-    # ===== ПЕРИОД 4 =====
-    {"id": 19, "symbol": "K",  "name": "Калий", "description": "Щелочной металл.", "x": 1, "y": 4, "group": "alkali"},
-    {"id": 20, "symbol": "Ca", "name": "Кальций", "description": "Костная ткань.", "x": 2, "y": 4, "group": "alkaline-earth"},
-
-    {"id": 21, "symbol": "Sc", "name": "Скандий", "description": "Переходный металл.", "x": 3, "y": 4, "group": "transition"},
-    {"id": 22, "symbol": "Ti", "name": "Титан", "description": "Прочный металл.", "x": 4, "y": 4, "group": "transition"},
-    {"id": 23, "symbol": "V",  "name": "Ванадий", "description": "Переходный металл.", "x": 5, "y": 4, "group": "transition"},
-    {"id": 24, "symbol": "Cr", "name": "Хром", "description": "Коррозионностойкий металл.", "x": 6, "y": 4, "group": "transition"},
-    {"id": 25, "symbol": "Mn", "name": "Марганец", "description": "Легирование стали.", "x": 7, "y": 4, "group": "transition"},
-    {"id": 26, "symbol": "Fe", "name": "Железо", "description": "Основной металл цивилизации.", "x": 8, "y": 4, "group": "transition"},
-    {"id": 27, "symbol": "Co", "name": "Кобальт", "description": "Магниты.", "x": 9, "y": 4, "group": "transition"},
-    {"id": 28, "symbol": "Ni", "name": "Никель", "description": "Коррозионностойкий металл.", "x": 10, "y": 4, "group": "transition"},
-    {"id": 29, "symbol": "Cu", "name": "Медь", "description": "Электропроводность.", "x": 11, "y": 4, "group": "transition"},
-    {"id": 30, "symbol": "Zn", "name": "Цинк", "description": "Оцинковка.", "x": 12, "y": 4, "group": "transition"},
-
-    {"id": 31, "symbol": "Ga", "name": "Галлий", "description": "Плавится на руке.", "x": 13, "y": 4, "group": "post-transition"},
-    {"id": 32, "symbol": "Ge", "name": "Германий", "description": "Полупроводник.", "x": 14, "y": 4, "group": "metalloid"},
-    {"id": 33, "symbol": "As", "name": "Мышьяк", "description": "Токсичный полуметалл.", "x": 15, "y": 4, "group": "metalloid"},
-    {"id": 34, "symbol": "Se", "name": "Селен", "description": "Фотосенсор.", "x": 16, "y": 4, "group": "nonmetal"},
-    {"id": 35, "symbol": "Br", "name": "Бром", "description": "Жидкий галоген.", "x": 17, "y": 4, "group": "halogen"},
-    {"id": 36, "symbol": "Kr", "name": "Криптон", "description": "Инертный газ.", "x": 18, "y": 4, "group": "noble"},
-
-    # ===== ПЕРИОД 5 =====
-    {"id": 37, "symbol": "Rb", "name": "Рубидий", "description": "Щелочной металл.", "x": 1, "y": 5, "group": "alkali"},
-    {"id": 38, "symbol": "Sr", "name": "Стронций", "description": "Пиротехника.", "x": 2, "y": 5, "group": "alkaline-earth"},
-
-    {"id": 39, "symbol": "Y",  "name": "Иттрий", "description": "Лазеры.", "x": 3, "y": 5, "group": "transition"},
-    {"id": 40, "symbol": "Zr", "name": "Цирконий", "description": "Коррозионностойкий.", "x": 4, "y": 5, "group": "transition"},
-    {"id": 41, "symbol": "Nb", "name": "Ниобий", "description": "Сверхпроводники.", "x": 5, "y": 5, "group": "transition"},
-    {"id": 42, "symbol": "Mo", "name": "Молибден", "description": "Жаропрочный металл.", "x": 6, "y": 5, "group": "transition"},
-    {"id": 43, "symbol": "Tc", "name": "Технеций", "description": "Радиоактивный элемент.", "x": 7, "y": 5, "group": "transition"},
-    {"id": 44, "symbol": "Ru", "name": "Рутений", "description": "Катализатор.", "x": 8, "y": 5, "group": "transition"},
-    {"id": 45, "symbol": "Rh", "name": "Родий", "description": "Драгоценный металл.", "x": 9, "y": 5, "group": "transition"},
-    {"id": 46, "symbol": "Pd", "name": "Палладий", "description": "Катализатор.", "x": 10, "y": 5, "group": "transition"},
-    {"id": 47, "symbol": "Ag", "name": "Серебро", "description": "Благородный металл.", "x": 11, "y": 5, "group": "transition"},
-    {"id": 48, "symbol": "Cd", "name": "Кадмий", "description": "Токсичный металл.", "x": 12, "y": 5, "group": "transition"},
-
-    {"id": 49, "symbol": "In", "name": "Индий", "description": "Мониторы.", "x": 13, "y": 5, "group": "post-transition"},
-    {"id": 50, "symbol": "Sn", "name": "Олово", "description": "Припои.", "x": 14, "y": 5, "group": "post-transition"},
-    {"id": 51, "symbol": "Sb", "name": "Сурьма", "description": "Сплавы.", "x": 15, "y": 5, "group": "metalloid"},
-    {"id": 52, "symbol": "Te", "name": "Теллур", "description": "Полуметалл.", "x": 16, "y": 5, "group": "metalloid"},
-    {"id": 53, "symbol": "I",  "name": "Йод", "description": "Медицина.", "x": 17, "y": 5, "group": "halogen"},
-    {"id": 54, "symbol": "Xe", "name": "Ксенон", "description": "Инертный газ.", "x": 18, "y": 5, "group": "noble"},
-
-    # ===== ПЕРИОД 6 =====
-    {"id": 55, "symbol": "Cs", "name": "Цезий", "description": "Щелочной металл.", "x": 1, "y": 6, "group": "alkali"},
-    {"id": 56, "symbol": "Ba", "name": "Барий", "description": "Рентгенография.", "x": 2, "y": 6, "group": "alkaline-earth"},
-
-    # Лантаноиды (вынесены вниз, но логически 6 период)
-    {"id": 57, "symbol": "La", "name": "Лантан", "description": "Лантаноид.", "x": 3, "y": 9, "group": "lanthanide"},
-    {"id": 58, "symbol": "Ce", "name": "Церий", "description": "Лантаноид.", "x": 4, "y": 9, "group": "lanthanide"},
-    {"id": 59, "symbol": "Pr", "name": "Празеодим", "description": "Лантаноид.", "x": 5, "y": 9, "group": "lanthanide"},
-    {"id": 60, "symbol": "Nd", "name": "Неодим", "description": "Лантаноид.", "x": 6, "y": 9, "group": "lanthanide"},
-    {"id": 61, "symbol": "Pm", "name": "Прометий", "description": "Радиоактивный.", "x": 7, "y": 9, "group": "lanthanide"},
-    {"id": 62, "symbol": "Sm", "name": "Самарий", "description": "Магниты.", "x": 8, "y": 9, "group": "lanthanide"},
-    {"id": 63, "symbol": "Eu", "name": "Европий", "description": "Люминофоры.", "x": 9, "y": 9, "group": "lanthanide"},
-    {"id": 64, "symbol": "Gd", "name": "Гадолиний", "description": "МРТ.", "x": 10, "y": 9, "group": "lanthanide"},
-    {"id": 65, "symbol": "Tb", "name": "Тербий", "description": "Фосфоры.", "x": 11, "y": 9, "group": "lanthanide"},
-    {"id": 66, "symbol": "Dy", "name": "Диспрозий", "description": "Магниты.", "x": 12, "y": 9, "group": "lanthanide"},
-    {"id": 67, "symbol": "Ho", "name": "Гольмий", "description": "Магнитные свойства.", "x": 13, "y": 9, "group": "lanthanide"},
-    {"id": 68, "symbol": "Er", "name": "Эрбий", "description": "Оптоволокно.", "x": 14, "y": 9, "group": "lanthanide"},
-    {"id": 69, "symbol": "Tm", "name": "Тулий", "description": "Редкий.", "x": 15, "y": 9, "group": "lanthanide"},
-    {"id": 70, "symbol": "Yb", "name": "Иттербий", "description": "Лазеры.", "x": 16, "y": 9, "group": "lanthanide"},
-    {"id": 71, "symbol": "Lu", "name": "Лютеций", "description": "Тяжёлый лантаноид.", "x": 17, "y": 9, "group": "lanthanide"},
-
-    # Основная таблица
-    {"id": 72, "symbol": "Hf", "name": "Гафний", "description": "Реакторные сплавы.", "x": 4, "y": 6, "group": "transition"},
-    {"id": 73, "symbol": "Ta", "name": "Тантал", "description": "Коррозионностойкий.", "x": 5, "y": 6, "group": "transition"},
-    {"id": 74, "symbol": "W",  "name": "Вольфрам", "description": "Тугоплавкий металл.", "x": 6, "y": 6, "group": "transition"},
-    {"id": 75, "symbol": "Re", "name": "Рений", "description": "Катализ.", "x": 7, "y": 6, "group": "transition"},
-    {"id": 76, "symbol": "Os", "name": "Осмий", "description": "Самый плотный.", "x": 8, "y": 6, "group": "transition"},
-    {"id": 77, "symbol": "Ir", "name": "Иридий", "description": "Тяжёлый металл.", "x": 9, "y": 6, "group": "transition"},
-    {"id": 78, "symbol": "Pt", "name": "Платина", "description": "Драгоценный металл.", "x": 10, "y": 6, "group": "transition"},
-    {"id": 79, "symbol": "Au", "name": "Золото", "description": "Ювелирный металл.", "x": 11, "y": 6, "group": "transition"},
-    {"id": 80, "symbol": "Hg", "name": "Ртуть", "description": "Жидкий металл.", "x": 12, "y": 6, "group": "transition"},
-
-    {"id": 81, "symbol": "Tl", "name": "Таллий", "description": "Токсичный металл.", "x": 13, "y": 6, "group": "post-transition"},
-    {"id": 82, "symbol": "Pb", "name": "Свинец", "description": "Тяжёлый металл.", "x": 14, "y": 6, "group": "post-transition"},
-    {"id": 83, "symbol": "Bi", "name": "Висмут", "description": "Слаботоксичный металл.", "x": 15, "y": 6, "group": "post-transition"},
-    {"id": 84, "symbol": "Po", "name": "Полоний", "description": "Радиоактивный.", "x": 16, "y": 6, "group": "metalloid"},
-    {"id": 85, "symbol": "At", "name": "Астат", "description": "Очень редкий.", "x": 17, "y": 6, "group": "halogen"},
-    {"id": 86, "symbol": "Rn", "name": "Радон", "description": "Радиоактивный газ.", "x": 18, "y": 6, "group": "noble"},
-
-    # ===== ПЕРИОД 7 =====
-    {"id": 87, "symbol": "Fr", "name": "Франций", "description": "Щелочной металл.", "x": 1, "y": 7, "group": "alkali"},
-    {"id": 88, "symbol": "Ra", "name": "Радий", "description": "Радиоактивный металл.", "x": 2, "y": 7, "group": "alkaline-earth"},
-
-    # Актиноиды (вынесены вниз)
-    {"id": 89, "symbol": "Ac", "name": "Актиний", "description": "Актиноид.", "x": 3, "y": 10, "group": "actinide"},
-    {"id": 90, "symbol": "Th", "name": "Торий", "description": "Ядерное топливо.", "x": 4, "y": 10, "group": "actinide"},
-    {"id": 91, "symbol": "Pa", "name": "Протактиний", "description": "Редкий.", "x": 5, "y": 10, "group": "actinide"},
-    {"id": 92, "symbol": "U",  "name": "Уран", "description": "Ядерное топливо.", "x": 6, "y": 10, "group": "actinide"},
-    {"id": 93, "symbol": "Np", "name": "Нептуний", "description": "Трансурановый.", "x": 7, "y": 10, "group": "actinide"},
-    {"id": 94, "symbol": "Pu", "name": "Плутоний", "description": "Ядерное топливо.", "x": 8, "y": 10, "group": "actinide"},
-    {"id": 95, "symbol": "Am", "name": "Америций", "description": "Датчики дыма.", "x": 9, "y": 10, "group": "actinide"},
-    {"id": 96, "symbol": "Cm", "name": "Кюрий", "description": "Радиоактивный металл.", "x": 10, "y": 10, "group": "actinide"},
-    {"id": 97, "symbol": "Bk", "name": "Берклий", "description": "Синтетический.", "x": 11, "y": 10, "group": "actinide"},
-    {"id": 98, "symbol": "Cf", "name": "Калифорний", "description": "Источник нейтронов.", "x": 12, "y": 10, "group": "actinide"},
-    {"id": 99, "symbol": "Es", "name": "Эйнштейний", "description": "Синтетический.", "x": 13, "y": 10, "group": "actinide"},
-    {"id": 100, "symbol": "Fm", "name": "Фермий", "description": "Редкий.", "x": 14, "y": 10, "group": "actinide"},
-    {"id": 101, "symbol": "Md", "name": "Менделевий", "description": "Назван в честь Менделеева.", "x": 15, "y": 10, "group": "actinide"},
-    {"id": 102, "symbol": "No", "name": "Нобелий", "description": "Редкий.", "x": 16, "y": 10, "group": "actinide"},
-    {"id": 103, "symbol": "Lr", "name": "Лоуренсий", "description": "Синтетический.", "x": 17, "y": 10, "group": "actinide"},
-
-    # Основная таблица
-    {"id": 104, "symbol": "Rf", "name": "Резерфордий", "description": "Сверхтяжёлый элемент.", "x": 4, "y": 7, "group": "transition"},
-    {"id": 105, "symbol": "Db", "name": "Дубний", "description": "Синтетический элемент.", "x": 5, "y": 7, "group": "transition"},
-    {"id": 106, "symbol": "Sg", "name": "Сиборгий", "description": "Назван в честь Сиборга.", "x": 6, "y": 7, "group": "transition"},
-    {"id": 107, "symbol": "Bh", "name": "Борий", "description": "Сверхтяжёлый.", "x": 7, "y": 7, "group": "transition"},
-    {"id": 108, "symbol": "Hs", "name": "Хассий", "description": "Сверхтяжёлый.", "x": 8, "y": 7, "group": "transition"},
-    {"id": 109, "symbol": "Mt", "name": "Мейтнерий", "description": "Назван в честь Мейтнер.", "x": 9, "y": 7, "group": "transition"},
-    {"id": 110, "symbol": "Ds", "name": "Дармштадтий", "description": "Синтезирован в Дармштадте.", "x": 10, "y": 7, "group": "transition"},
-    {"id": 111, "symbol": "Rg", "name": "Рентгений", "description": "Назван в честь Рентгена.", "x": 11, "y": 7, "group": "transition"},
-    {"id": 112, "symbol": "Cn", "name": "Коперниций", "description": "Назван в честь Коперника.", "x": 12, "y": 7, "group": "transition"},
-
-    {"id": 113, "symbol": "Nh", "name": "Нихоний", "description": "Открыт в Японии.", "x": 13, "y": 7, "group": "post-transition"},
-    {"id": 114, "symbol": "Fl", "name": "Флеровий", "description": "В честь Флёрова.", "x": 14, "y": 7, "group": "post-transition"},
-    {"id": 115, "symbol": "Mc", "name": "Московий", "description": "В честь Москвы.", "x": 15, "y": 7, "group": "post-transition"},
-    {"id": 116, "symbol": "Lv", "name": "Ливерморий", "description": "В честь Ливермора.", "x": 16, "y": 7, "group": "post-transition"},
-    {"id": 117, "symbol": "Ts", "name": "Теннессин", "description": "В честь Теннесси.", "x": 17, "y": 7, "group": "halogen"},
-    {"id": 118, "symbol": "Og", "name": "Оганесон", "description": "В честь Оганесяна.", "x": 18, "y": 7, "group": "noble"},
+    {
+        "id": 87,
+        "symbol": "Fr",
+        "name": "Франций",
+        "mass": "223",
+        "group": "alkali",
+        "description": "Крайне редкий и радиоактивный щелочной металл.",
+        "x": 1,
+        "y": 7
+    },
+    {
+        "id": 88,
+        "symbol": "Ra",
+        "name": "Радий",
+        "mass": "226",
+        "group": "alkaline-earth",
+        "description": "Очень радиоактивный металл; излучает голубое свечение.",
+        "x": 2,
+        "y": 7
+    },
+    {
+        "id": 104,
+        "symbol": "Rf",
+        "name": "Резерфордий",
+        "mass": "267",
+        "group": "transition",
+        "description": "Синтетический элемент; используется только в научных исследованиях.",
+        "x": 4,
+        "y": 7
+    },
+    {
+        "id": 105,
+        "symbol": "Db",
+        "name": "Дубний",
+        "mass": "268",
+        "group": "transition",
+        "description": "Открыт в Дубне; сверхтяжёлый радиоактивный металл.",
+        "x": 5,
+        "y": 7
+    },
+    {
+        "id": 106,
+        "symbol": "Sg",
+        "name": "Сиборгий",
+        "mass": "271",
+        "group": "transition",
+        "description": "Назван в честь американского химика Гленна Сиборга.",
+        "x": 6,
+        "y": 7
+    },
+    {
+        "id": 107,
+        "symbol": "Bh",
+        "name": "Борий",
+        "mass": "270",
+        "group": "transition",
+        "description": "Сверхтяжёлый элемент; изучается в физике ядра.",
+        "x": 7,
+        "y": 7
+    },
+    {
+        "id": 108,
+        "symbol": "Hs",
+        "name": "Хассий",
+        "mass": "277",
+        "group": "transition",
+        "description": "Радиоактивный металл; получен в Германии.",
+        "x": 8,
+        "y": 7
+    },
+    {
+        "id": 109,
+        "symbol": "Mt",
+        "name": "Мейтнерий",
+        "mass": "278",
+        "group": "transition",
+        "description": "Назван в честь Лизы Мейтнер, физика-ядерщика.",
+        "x": 9,
+        "y": 7
+    },
+    {
+        "id": 110,
+        "symbol": "Ds",
+        "name": "Дармштадтий",
+        "mass": "281",
+        "group": "transition",
+        "description": "Получен в Дармштадте; сверхтяжёлый элемент.",
+        "x": 10,
+        "y": 7
+    },
+    {
+        "id": 111,
+        "symbol": "Rg",
+        "name": "Рентгений",
+        "mass": "282",
+        "group": "transition",
+        "description": "Назван в честь Рентгена; существует доли секунды.",
+        "x": 11,
+        "y": 7
+    },
+    {
+        "id": 112,
+        "symbol": "Cn",
+        "name": "Коперниций",
+        "mass": "285",
+        "group": "transition",
+        "description": "Назван в честь Коперника; благородный сверхтяжёлый металл.",
+        "x": 12,
+        "y": 7
+    },
+    {
+        "id": 113,
+        "symbol": "Nh",
+        "name": "Нихоний",
+        "mass": "286",
+        "group": "post-transition",
+        "description": "Открыт в Японии; сверхтяжёлый искусственный элемент.",
+        "x": 13,
+        "y": 7
+    },
+    {
+        "id": 114,
+        "symbol": "Fl",
+        "name": "Флеровий",
+        "mass": "289",
+        "group": "post-transition",
+        "description": "Назван в честь лаборатории Флёрова (Дубна).",
+        "x": 14,
+        "y": 7
+    },
+    {
+        "id": 115,
+        "symbol": "Mc",
+        "name": "Московий",
+        "mass": "290",
+        "group": "post-transition",
+        "description": "Назван в честь Московской области; открыт в ОИЯИ.",
+        "x": 15,
+        "y": 7
+    },
+    {
+        "id": 116,
+        "symbol": "Lv",
+        "name": "Ливерморий",
+        "mass": "293",
+        "group": "post-transition",
+        "description": "Назван в честь национальной лаборатории Ливермора.",
+        "x": 16,
+        "y": 7
+    },
+    {
+        "id": 117,
+        "symbol": "Ts",
+        "name": "Теннессин",
+        "mass": "294",
+        "group": "halogen",
+        "description": "Новый сверхтяжёлый галоген; открыт в США и ОИЯИ.",
+        "x": 17,
+        "y": 7
+    },
+    {
+        "id": 118,
+        "symbol": "Og",
+        "name": "Оганесон",
+        "mass": "294",
+        "group": "noble",
+        "description": "Сверхтяжёлый благородный газ; назван в честь Ю. Оганесяна.",
+        "x": 18,
+        "y": 7
+    },
 ]

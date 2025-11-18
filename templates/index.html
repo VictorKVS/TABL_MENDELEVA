@@ -9,7 +9,7 @@
 <body>
 
 <div class="header">
-    Периодическая таблица Менделеева
+    Периодическая система химических элементов Д.И. Менделеева
 
     <button class="theme-switch" onclick="toggleTheme()" id="themeButton">
         🌙
@@ -18,54 +18,63 @@
 
 <div class="container">
 
-    <!-- Форма поиска -->
+    <!-- Поиск -->
     <form action="/search" method="get">
         <input type="text" name="q" placeholder="Введите элемент или символ" required>
         <button type="submit">Поиск</button>
     </form>
 
-    <div class="grid">
+    <!-- Сетка групп (верхняя строка) -->
+    <div class="groups-header">
+        <div class="group-cell"></div>
+        {% for g in range(1, 19) %}
+            <div class="group-cell"> {{ g }} </div>
+        {% endfor %}
+    </div>
+
+    <!-- Сетка элементов -->
+    <div class="periodic-grid">
         {% for el in elements %}
-            <a href="/element/{{ el.id }}"
-               class="element {{ el.group }}"
-               style="grid-column: {{ el.x }}; grid-row: {{ el.y }};">
-                {{ el.symbol }}<br>
-                <small>{{ el.id }}</small>
-            </a>
+        <a href="/element/{{ el.id }}" 
+           class="element-tile group {{ el.group }}"
+           style="grid-column: {{ el.x }}; grid-row: {{ el.y }};">
+           
+            <div class="tile-number">{{ el.id }}</div>
+            <div class="tile-symbol">{{ el.symbol }}</div>
+            <div class="tile-name">{{ el.name }}</div>
+            <div class="tile-mass">{{ el.mass }}</div>
+
+        </a>
         {% endfor %}
     </div>
 
 </div>
 
-<!-- ======= ТЁМНАЯ ТЕМА ======= -->
+
+<!-- Темная тема -->
 <script>
 function toggleTheme() {
     const body = document.body;
-    const btn = document.getElementById("themeButton");
-
     body.classList.toggle("dark");
 
     if (body.classList.contains("dark")) {
         localStorage.setItem("theme", "dark");
-        btn.textContent = "☀";
+        document.getElementById("themeButton").textContent = "☀";
     } else {
         localStorage.setItem("theme", "light");
-        btn.textContent = "🌙";
+        document.getElementById("themeButton").textContent = "🌙";
     }
 }
 
-// При загрузке страницы — восстановить тему
 window.onload = function () {
     const theme = localStorage.getItem("theme");
-    const btn = document.getElementById("themeButton");
-
     if (theme === "dark") {
         document.body.classList.add("dark");
-        btn.textContent = "☀";
+        document.getElementById("themeButton").textContent = "☀";
     } else {
-        btn.textContent = "🌙";
+        document.getElementById("themeButton").textContent = "🌙";
     }
-};
+}
 </script>
 
 </body>

@@ -2,16 +2,53 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>{{ element.name }}</title>
+    <title>{{ element.name }} — {{ element.symbol }}</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-<h1>{{ element.name }} ({{ element.symbol }})</h1>
+<div class="header">
+    {{ element.name }} ({{ element.symbol }})
+    <button class="theme-switch" onclick="toggleTheme()" id="themeButton">
+        🌙
+    </button>
+</div>
 
-<p><strong>Порядковый номер:</strong> {{ element.id }}</p>
-<p>{{ element.description }}</p>
+<div class="container">
 
-<a href="/">Назад</a>
+    <div class="element-detail {{ element.group }}">
+        <div class="ed-symbol">{{ element.symbol }}</div>
+        <div class="ed-number">{{ element.id }}</div>
+        <div class="ed-name">{{ element.name }}</div>
+        <div class="ed-mass">{{ element.mass }} u</div>
+
+        <p class="ed-desc">{{ element.description }}</p>
+
+        <a href="/" class="back-btn">← Назад</a>
+    </div>
+
+</div>
+
+<script>
+function toggleTheme() {
+    const body = document.body;
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
+        document.getElementById("themeButton").textContent = "☀";
+    } else {
+        localStorage.setItem("theme", "light");
+        document.getElementById("themeButton").textContent = "🌙";
+    }
+}
+window.onload = function () {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+        document.getElementById("themeButton").textContent = "☀";
+    }
+}
+</script>
 
 </body>
 </html>

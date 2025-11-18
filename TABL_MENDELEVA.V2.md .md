@@ -37,6 +37,7 @@ TABL_MENDELEVA/
 │   └── rebuild_vectors.py      # пересоздать эмбеддинги
 │
 ├── tests/                      # тесты
+├──  TABL_MENDELEVA.V3.md -    # действующая версия  
 │
 ├── README.md
 ├── requirements.txt
